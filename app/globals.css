@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #060e1a;
+  --bg-gradient: linear-gradient(135deg, #060e1a 0%, #0c1a2e 50%, #0a1424 100%);
+  --card: rgba(15, 25, 45, 0.7);
+  --card-solid: #0f1930;
+  --card-hover: rgba(20, 32, 55, 0.8);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-accent: rgba(26, 92, 181, 0.3);
+  --accent: #d71920;
+  --accent-dim: #b01018;
+  --accent-glow: rgba(215, 25, 32, 0.15);
+  --accent-blue: #2b7de9;
+  --accent-blue-dim: #1a5cb5;
+  --accent-blue-glow: rgba(43, 125, 233, 0.12);
+  --text: #edf1f7;
+  --text-light: #6b7d94;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, .mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Glass card effect */
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.glass-solid {
+  background: var(--card-solid);
+  border: 1px solid var(--border);
+}
+
+/* Glow effects */
+.glow-red {
+  box-shadow: 0 0 20px var(--accent-glow), 0 0 60px rgba(215, 25, 32, 0.05);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px var(--accent-blue-glow), 0 0 60px rgba(43, 125, 233, 0.05);
+}
+
+/* Gradient text */
+.gradient-text-red {
+  background: linear-gradient(135deg, #ff3a3a 0%, #d71920 50%, #a01018 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #5ea3ff 0%, #2b7de9 50%, #1a5cb5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #e82028 0%, #c41820 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(215, 25, 32, 0.3);
+}
+.btn-primary:hover {
+  box-shadow: 0 4px 16px rgba(215, 25, 32, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-blue {
+  background: linear-gradient(135deg, #3388f0 0%, #1a6dd6 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(43, 125, 233, 0.3);
+}
+.btn-blue:hover {
+  box-shadow: 0 4px 16px rgba(43, 125, 233, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.2s ease;
+}
+.btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Stat number styling */
+.stat-value {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Animated pulse for live indicators */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px currentColor; }
+  50% { opacity: 0.6; box-shadow: 0 0 8px currentColor, 0 0 16px currentColor; }
+}
+.pulse-live {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.badge-blue {
+  background: rgba(43, 125, 233, 0.12);
+  color: var(--accent-blue);
+  border: 1px solid rgba(43, 125, 233, 0.2);
+}
+.badge-red {
+  background: rgba(215, 25, 32, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(215, 25, 32, 0.2);
+}
+.badge-green {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Section divider gradient */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--border-accent) 50%, transparent 100%);
+}
