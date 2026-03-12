@@ -28,24 +28,24 @@ interface Receipt {
 }
 
 const DEMO_DASHBOARD: DashboardData = {
-  active_permits: 12,
-  total_receipts: 847,
-  total_destructions: 203,
-  total_verifications: 1542,
-  avg_destruction_latency_ms: 47,
+  active_permits: 4,
+  total_receipts: 18,
+  total_destructions: 6,
+  total_verifications: 12,
+  avg_destruction_latency_ms: 41,
   sla_compliance_pct: 100,
-  current_epoch: 847,
+  current_epoch: 3,
   chain_integrity: true,
-  uptime_seconds: 2592000,
+  uptime_seconds: 86400,
 };
 
 const DEMO_RECEIPTS: Receipt[] = [
-  { id: "r-001", timestamp: new Date(Date.now() - 120000).toISOString(), operation: "permit_created", type: "authorization", hash: "a3f8c2e1d4b5a6f7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3", entity: "CUST-WELLS-0042", permit_id: "p-0847" },
-  { id: "r-002", timestamp: new Date(Date.now() - 300000).toISOString(), operation: "permit_destroyed", type: "revocation", hash: "b4e9d3f2c5a6b7e8d9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4", entity: "CUST-CHASE-0119", permit_id: "p-0846", latency_ms: 38 },
-  { id: "r-003", timestamp: new Date(Date.now() - 600000).toISOString(), operation: "permit_verified", type: "verification", hash: "c5f0e4a3d6b7c8f9e0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5", entity: "CUST-BOA-0331" },
-  { id: "r-004", timestamp: new Date(Date.now() - 900000).toISOString(), operation: "permit_created", type: "authorization", hash: "d6a1f5b4e7c8d9a0f1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6", entity: "CUST-USB-0087", permit_id: "p-0845" },
-  { id: "r-005", timestamp: new Date(Date.now() - 1500000).toISOString(), operation: "permit_destroyed", type: "revocation", hash: "e7b2a6c5f8d9e0b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7", entity: "CUST-CITI-0205", permit_id: "p-0844", latency_ms: 52 },
-  { id: "r-006", timestamp: new Date(Date.now() - 2400000).toISOString(), operation: "permit_verified", type: "verification", hash: "f8c3b7d6a9e0f1c2b3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8", entity: "CUST-WELLS-0042" },
+  { id: "r-001", timestamp: new Date(Date.now() - 120000).toISOString(), operation: "permit_created", type: "authorization", hash: "a3f8c2e1d4b5a6f7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3", entity: "ACME-CORP-0042", permit_id: "p-0018" },
+  { id: "r-002", timestamp: new Date(Date.now() - 300000).toISOString(), operation: "permit_destroyed", type: "revocation", hash: "b4e9d3f2c5a6b7e8d9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4", entity: "GLOBEX-IND-0119", permit_id: "p-0017", latency_ms: 38 },
+  { id: "r-003", timestamp: new Date(Date.now() - 600000).toISOString(), operation: "permit_verified", type: "verification", hash: "c5f0e4a3d6b7c8f9e0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5", entity: "INITECH-0331" },
+  { id: "r-004", timestamp: new Date(Date.now() - 900000).toISOString(), operation: "permit_created", type: "authorization", hash: "d6a1f5b4e7c8d9a0f1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6", entity: "STARK-ENT-0087", permit_id: "p-0016" },
+  { id: "r-005", timestamp: new Date(Date.now() - 1500000).toISOString(), operation: "permit_destroyed", type: "revocation", hash: "e7b2a6c5f8d9e0b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7", entity: "WAYNE-IND-0205", permit_id: "p-0015", latency_ms: 52 },
+  { id: "r-006", timestamp: new Date(Date.now() - 2400000).toISOString(), operation: "permit_verified", type: "verification", hash: "f8c3b7d6a9e0f1c2b3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8", entity: "ACME-CORP-0042" },
 ];
 
 export default function DashboardPage() {
@@ -241,7 +241,7 @@ function DashboardContent() {
       {isDemo && (
         <div className="px-4 py-2.5 text-center text-sm font-semibold"
              style={{ background: "linear-gradient(90deg, #1a5cb5, #2b7de9)", color: "#fff" }}>
-          DEMO MODE — Simulated data &middot; All operations local &middot;{" "}
+          INTERACTIVE WALKTHROUGH &middot; Sample data &middot;{" "}
           <Link href="/login" className="underline font-bold">Connect API</Link>{" "}
           &middot;{" "}
           <Link href="/" className="underline font-bold">Home</Link>
